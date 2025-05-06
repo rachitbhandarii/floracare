@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloraCare - Gardener Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5ede6;
+            color: #2f4f4f;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            background-color: #f7ceb5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 90px;
+            margin-right: 15px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4a5a41;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #4a5a41;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 25px;
+            background-color: #a6b49c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8e9f85;
+        }
+
+        .user-profile-button {
+            background-color: #a6b49c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .user-profile-button:hover {
+            background-color: #8e9f85;
+        }
+        .detect-location-container {
+            position: static;
+            margin-bottom: 18px;
+            margin-left: 0;
+        }
+        .detect-location-btn {
+            background-color: #a6b49c;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .detect-location-btn:hover {
+            background-color: #8e9f85;
+        }
+
+        @media (max-width: 430px) {
+            body {
+                padding: 0 12px;
+            }
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 16px 0 10px 0;
+            }
+            .logo {
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+            }
+            .logo img {
+                width: 54px;
+                margin-right: 10px;
+            }
+            .title {
+                font-size: 20px;
+            }
+            .user-profile-button {
+                width: 100%;
+                margin-top: 12px;
+                margin-bottom: 0;
+                padding: 14px 0;
+                font-size: 1rem;
+                border-radius: 25px;
+                text-align: center;
+                box-sizing: border-box;
+                white-space: normal;
+                max-width: 100%;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="FloraCare Logo">
+            <div class="title">FloraCare</div>
+        </div>
+        <a href="profile.html" class="user-profile-button">Profile</a>
+    </header>
+    <div class="container">
+        <h2>Gardener Services</h2>
+        <div class="detect-location-container">
+            <button type="button" class="detect-location-btn" onclick="detectLocation()">Detect Location</button>
+        </div>
+        <form onsubmit="return submitRequest(event)">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="Enter your location">
+
+            <label for="service">Type of Service</label>
+            <select id="service" name="service" onchange="toggleServiceFields()">
+                <option value="setup">Setup</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="troubleshooting">Troubleshooting</option>
+            </select>
+
+            <div id="date-fields">
+                <label for="date" id="date-label">Date of Service</label>
+                <input type="date" id="date" name="date">
+            </div>
+
+            <div id="maintenance-fields" style="display:none;">
+                <label for="maintenance-plan">Maintenance Plan</label>
+                <select id="maintenance-plan" name="maintenance-plan">
+                    <option value="onetime">One Time</option>
+                    <option value="1month">1 Month</option>
+                    <option value="3months">3 Months</option>
+                    <option value="6months">6 Months</option>
+                    <option value="annual">Annual</option>
+                </select>
+                <label for="subscription-date">Subscription Start Date</label>
+                <input type="date" id="subscription-date" name="subscription-date">
+                <label for="first-service-date">First Service Date</label>
+                <input type="date" id="first-service-date" name="first-service-date">
+            </div>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter service address"></textarea>
+
+            <label for="contact">Contact Information</label>
+            <input type="text" id="contact" name="contact" placeholder="Email or phone number">
+
+            <label for="promo">Promo Code</label>
+            <input type="text" id="promo" name="promo" placeholder="Enter promo code if any">
+
+            <label for="payment">Payment Method</label>
+            <select id="payment" name="payment">
+                <option value="credit">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="netbanking">Net Banking</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleServiceFields() {
+            var service = document.getElementById('service').value;
+            var maintenanceFields = document.getElementById('maintenance-fields');
+            var dateFields = document.getElementById('date-fields');
+            var dateLabel = document.getElementById('date-label');
+            var dateInput = document.getElementById('date');
+            if (service === 'maintenance') {
+                maintenanceFields.style.display = 'block';
+                dateFields.style.display = 'none';
+            } else {
+                maintenanceFields.style.display = 'none';
+                dateFields.style.display = 'block';
+                if (service === 'setup' || service === 'troubleshooting') {
+                    dateLabel.textContent = 'Date of Service';
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleServiceFields();
+        });
+        function detectLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    document.getElementById('location').value = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
+                }, function(error) {
+                    alert('Unable to detect location.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+        function submitRequest(e) {
+            e.preventDefault();
+            alert("Thank you! Your service request has been submitted.");
+            // Optionally, reset the form: e.target.reset();
+            return false;
+        }
+    </script>
+</body>
+
+</html>

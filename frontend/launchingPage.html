@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloraCare - Nurturing Your Greens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5ede6;
+            color: #2f4f4f;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+            background-color: #f7ceb5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 105px;
+            margin-right: 15px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4a5a41;
+        }
+
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #3b3b3b;
+            margin-top: 4px;
+        }
+
+        .user-profile-button {
+            background-color: #a6b49c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+        }
+
+        .user-profile-button:hover {
+            background-color: #8e9f85;
+        }
+
+        .hero-gallery {
+            padding: 40px 20px;
+            background: linear-gradient(to right, #f7ceb5, #cbcfb5);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .hero-gallery img {
+            height: 250px;
+            margin: 0 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: inline-block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 60px 40px;
+            background-color: #ffffff;
+        }
+
+        .feature-button {
+            background: linear-gradient(to bottom right, #cbcfb5, #a6b49c);
+            color: #fff;
+            border: none;
+            padding: 30px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #f7ceb5;
+            border-top: 1px solid #ccc;
+            color: #4a5a41;
+            font-size: 14px;
+        }
+
+        /* --- Mobile-friendly styles for iPhone 13 and similar devices --- */
+        @media (max-width: 430px) {
+            body {
+                font-size: 1rem;
+                padding: 0;
+                margin: 0;
+                overflow-x: hidden;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 14px 8px;
+            }
+            .logo {
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+            }
+            .logo img {
+                width: 60px;
+                margin-right: 10px;
+            }
+            .title {
+                font-size: 20px;
+            }
+            .tagline {
+                font-size: 13px;
+                margin-top: 2px;
+            }
+            .user-profile-button {
+                width: 100%;
+                margin-top: 12px;
+                margin-bottom: 0;
+                padding: 14px 0;
+                font-size: 1rem;
+                border-radius: 25px;
+                text-align: center;
+                box-sizing: border-box;
+                white-space: normal;
+                max-width: 100%;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+            .hero-gallery {
+                padding: 18px 2px;
+            }
+            .hero-gallery img {
+                height: 120px;
+                margin: 0 6px;
+                border-radius: 12px;
+            }
+            .features {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                padding: 20px 16px;
+            }
+            .feature-button {
+                font-size: 1rem;
+                padding: 18px 0;
+                border-radius: 14px;
+            }
+            footer {
+                padding: 16px 4px;
+                font-size: 12px;
+            }
+        }
+        @media (min-width: 431px) {
+            .features {
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="FloraCare Logo">
+            <div>
+                <div class="title">FloraCare</div>
+                <div class="tagline">Smart gardening... simplified</div>
+            </div>
+        </div>
+        <a href="profile.html" class="user-profile-button">Profile</a>
+    </header>
+
+    <section class="hero-gallery">
+        <img src="g1.png" alt="Gardening 1">
+        <img src="g2.png" alt="Gardening 2">
+        <img src="g3.png" alt="Gardening 3">
+        <img src="g4.png" alt="Gardening 4">
+    </section>
+
+    <section class="features">
+        <div class="feature-button" onclick="location.href='gardenerServices.html'">Gardener Services</div>
+        <div class="feature-button" onclick="location.href='ai-features.html'">AI Plant Health Monitoring</div>
+        <div class="feature-button" onclick="navigateTo('scheduling')">Smart Scheduling</div>
+        <div class="feature-button" onclick="location.href='gardeningTipsMarketplace.html'">Gardening Tips & Marketplace</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FloraCare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function navigateTo(section) {
+            alert(`Navigating to ${section}... (API/JS logic goes here)`);
+        }
+    </script>
+</body>
+
+</html>
